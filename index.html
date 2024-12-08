@@ -17,6 +17,8 @@
       getComputerChoice(); // If randomNum = 0, redo the function
     }
 
+    console.log("Computer choice: " + choice);
+
     return choice;
   }
 
@@ -24,7 +26,7 @@
     // Declare choiceInput variable and assign it to a prompt where the user enters in a choice
     let choice = prompt("Please enter a choice.\n(i.e. Rock, Paper, Scissors)");
 
-    console.log(choice);
+    console.log("Your choice: " + choice);
 
     return choice;
   }
@@ -55,12 +57,16 @@
     } else if (humanChoice == "paper" && computerChoice == "scissors") {
       console.log("You lost! Scissors beats paper!");
       computerScore++;
-    } else {
+    } else if (humanChoice == computerChoice) {
       console.log("It's a draw!");
+    } else {
+      console.log("Please input a proper choice."); // If user input is not rock, paper, scissors
     }
+    console.log("--------------------");
   }
 
   function playGame() {
+    console.log("--------------------");
     // Declare variables which get choices for the human and computer
 
     let gamesPlayed = 0;
@@ -76,6 +82,7 @@
   }
 
   function displayFinalScores() {
+    console.log("Results");
     console.log("--------------------");
     if (humanScore > computerScore) {
       console.log("You Win!");
