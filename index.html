@@ -76,8 +76,17 @@
   }
 
   function displayFinalScores() {
-    console.log(humanScore);
-    console.log(computerScore);
+    console.log("--------------------");
+    if (humanScore > computerScore) {
+      console.log("You Win!");
+    } else if (humanScore < computerScore) {
+      console.log("You Lose!");
+    } else {
+      console.log("It's a Draw!");
+    }
+    console.log("Your Score: " + humanScore);
+    console.log("Computer Score: " + computerScore);
+    console.log("--------------------");
   }
 
   playGame();
