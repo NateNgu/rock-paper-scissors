@@ -1,34 +1,44 @@
 <script>
-    function getComputerChoice() {
-        // Declare randomNum value, which will store a random number from 1-3
-        let randomNum = 0;
-        // Get random number from 1-3, and store it into randomNum
-        randomNum = Math.ceil(Math.random() * 3) // Generates random number 0-1, multiplies it by 3 and rounds it up
-        // Declare choice variable, which will store the computer choice
-        let choice = "";
-        // Based on the number, assign the choice variable rock, paper, or scissors
-        if (randomNum == 1) {
-            choice = "Rock";
-        } else if (randomNum == 2) {
-            choice = "Paper";
-        } else if (randomNum == 3) {
-            choice = "Scissors";
-        } else {
-            getComputerChoice(); // If randomNum = 0, redo the function
-        }
-
-        return choice;
-
+  function getComputerChoice() {
+    // Declare randomNum value, which will store a random number from 1-3
+    let randomNum = 0;
+    // Get random number from 1-3, and store it into randomNum
+    randomNum = Math.ceil(Math.random() * 3); // Generates random number 0-1, multiplies it by 3 and rounds it up
+    // Declare choice variable, which will store the computer choice
+    let choice = "";
+    // Based on the number, assign the choice variable rock, paper, or scissors
+    if (randomNum == 1) {
+      choice = "Rock";
+    } else if (randomNum == 2) {
+      choice = "Paper";
+    } else if (randomNum == 3) {
+      choice = "Scissors";
+    } else {
+      getComputerChoice(); // If randomNum = 0, redo the function
     }
 
-    function getHumanChoice() {
-        // Declare choiceInput variable and assign it to a prompt where the user enters in a choice
-        let choice = prompt("Please enter a choice.\n(i.e. Rock, Paper, Scissors)");
-        console.log(choice);
-    }
+    return choice;
+  }
 
-    let computerScore = 0;
-    let humanScore = 0;
+  function getHumanChoice() {
+    // Declare choiceInput variable and assign it to a prompt where the user enters in a choice
+    let choice = prompt("Please enter a choice.\n(i.e. Rock, Paper, Scissors)");
+    console.log(choice);
+    return choice;
+  }
+  // Declare initial scores
+  let computerScore = 0;
+  let humanScore = 0;
 
+  function playRound(humanChoice, computerChoice) {
+    // Make humanChoice case insensitive by parsing into lowercase
+    humanChoice.toLowerCase();
+    console.log(humanChoice);
+  }
 
+  // Declare variables which get choices for the human and computer
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+
+  playRound(humanSelection, computerSelection);
 </script>
