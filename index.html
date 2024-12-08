@@ -60,9 +60,19 @@
     }
   }
 
-  // Declare variables which get choices for the human and computer
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
+  function playGame() {
+    // Declare variables which get choices for the human and computer
 
-  playRound(humanSelection, computerSelection);
+    let gamesPlayed = 0;
+
+    // Call the playRound function 5 times
+    while (gamesPlayed < 5) {
+      const humanSelection = getHumanChoice();
+      const computerSelection = getComputerChoice();
+      playRound(humanSelection, computerSelection);
+      gamesPlayed++;
+    }
+  }
+
+  playGame();
 </script>
