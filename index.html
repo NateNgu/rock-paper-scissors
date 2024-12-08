@@ -72,6 +72,12 @@
       playRound(humanSelection, computerSelection);
       gamesPlayed++;
     }
+    displayFinalScores();
+  }
+
+  function displayFinalScores() {
+    console.log(humanScore);
+    console.log(computerScore);
   }
 
   playGame();
