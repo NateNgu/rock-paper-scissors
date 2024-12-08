@@ -8,11 +8,11 @@
     let choice = "";
     // Based on the number, assign the choice variable rock, paper, or scissors
     if (randomNum == 1) {
-      choice = "Rock";
+      choice = "rock";
     } else if (randomNum == 2) {
-      choice = "Paper";
+      choice = "paper";
     } else if (randomNum == 3) {
-      choice = "Scissors";
+      choice = "scissors";
     } else {
       getComputerChoice(); // If randomNum = 0, redo the function
     }
@@ -23,7 +23,9 @@
   function getHumanChoice() {
     // Declare choiceInput variable and assign it to a prompt where the user enters in a choice
     let choice = prompt("Please enter a choice.\n(i.e. Rock, Paper, Scissors)");
+
     console.log(choice);
+
     return choice;
   }
   // Declare initial scores
@@ -32,8 +34,28 @@
 
   function playRound(humanChoice, computerChoice) {
     // Make humanChoice case insensitive by parsing into lowercase
-    humanChoice.toLowerCase();
-    console.log(humanChoice);
+    humanChoice = humanChoice.toLowerCase();
+    // Based on the humanChoice and computerChoice, decide if the player won or lost
+    // Increments the winners score by one
+    if (humanChoice == "paper" && computerChoice == "rock") {
+      console.log("You won! Paper beats rock!");
+      humanScore++;
+    } else if (humanChoice == "rock" && computerChoice == "scissors") {
+      console.log("You won! Rock beats scissors!");
+      humanScore++;
+    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+      console.log("You won! Scissors beats paper!");
+      humanScore++;
+    } else if (humanChoice == "rock" && computerChoice == "paper") {
+      console.log("You lost! Paper beats rock!");
+      computerScore++;
+    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+      console.log("You lost! Rock beats scissors!");
+      computerScore++;
+    } else if (humanChoice == "paper" && computerChoice == "scissors") {
+      console.log("You lost! Scissors beats paper!");
+      computerScore++;
+    }
   }
 
   // Declare variables which get choices for the human and computer
