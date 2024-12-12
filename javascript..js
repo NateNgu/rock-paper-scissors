@@ -34,12 +34,10 @@ let roundsPlayed = 0;
 function playRound(humanChoice, computerChoice) {
   if (humanScore === 5 || computerScore === 5) {
     console.log("a");
-    const humanResults = (document.createElement(
-      "h4"
-    ).innerText = `Your score = ${humanScore}`);
-    const computerResults = (document.createElement(
-      "h4"
-    ).innerText = `Computer Score = ${computerScore}`);
+    const humanResults = document.createElement("h4");
+    humanResults.innerText = `Your score = ${humanScore}`;
+    const computerResults = document.createElement("h4");
+    computerResults.innerText = `Computer Score = ${computerScore}`; // will return typerror because you're trying to append a string
     const results = document.getElementById("results");
 
     results.appendChild(humanResults);
@@ -82,22 +80,23 @@ function playRound(humanChoice, computerChoice) {
     console.log("Please input a proper choice."); // If user input is not rock, paper, scissors
   }
   console.log("--------------------");
-  console.log(humanScore)
+  console.log(humanScore);
 }
 
 function displayFinalScores() {
-  console.log("Results");
-  console.log("--------------------");
-  if (humanScore > computerScore) {
-    console.log("You Win!");
-  } else if (humanScore < computerScore) {
-    console.log("You Lose!");
-  } else {
-    console.log("It's a Draw!");
+  if (humanScore === 5 || computerScore === 5) {
+    console.log("a");
+    const humanResults = document.createElement("h4");
+    humanResults.innerText = `Your score = ${humanScore}`;
+    const computerResults = document.createElement("h4");
+    computerResults.innerText = `Computer Score = ${computerScore}`; // will return typerror because you're trying to append a string
+    const results = document.getElementById("results");
+
+    results.appendChild(humanResults);
+    results.appendChild(computerResults);
+
+    resultContainer.style.display = "block";
   }
-  console.log("Your Score: " + humanScore);
-  console.log("Computer Score: " + computerScore);
-  console.log("--------------------");
 }
 
 const rockButton = document.getElementById("rock");
