@@ -33,30 +33,23 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice == "paper" && computerChoice == "rock") {
       console.log("You won! Paper beats rock!");
       humanScore++;
-      roundsPlayed++;
     } else if (humanChoice == "rock" && computerChoice == "scissors") {
       console.log("You won! Rock beats scissors!");
       humanScore++;
-      roundsPlayed++;
     } else if (humanChoice == "scissors" && computerChoice == "paper") {
       console.log("You won! Scissors beats paper!");
       humanScore++;
-      roundsPlayed++;
     } else if (humanChoice == "rock" && computerChoice == "paper") {
       console.log("You lost! Paper beats rock!");
       computerScore++;
-      roundsPlayed++;
     } else if (humanChoice == "scissors" && computerChoice == "rock") {
       console.log("You lost! Rock beats scissors!");
       computerScore++;
-      roundsPlayed++;
     } else if (humanChoice == "paper" && computerChoice == "scissors") {
       console.log("You lost! Scissors beats paper!");
       computerScore++;
-      roundsPlayed++;
     } else if (humanChoice == computerChoice) {
       console.log("It's a draw!");
-      roundsPlayed++;
     } else {
       console.log("Please input a proper choice."); // If user input is not rock, paper, scissors
     }
