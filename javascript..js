@@ -20,12 +20,6 @@ function getComputerChoice() {
 
   return choice;
 }
-
-function getHumanChoice(choice) {
-  console.log("Your choice: " + choice);
-
-  return choice;
-}
 // Declare initial scores
 let computerScore = 0;
 let humanScore = 0;
@@ -107,15 +101,15 @@ for (i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
     switch (this.id) {
       case "rock":
-        playRound(getHumanChoice("rock"), getComputerChoice());
+        playRound("rock", getComputerChoice());
         break;
 
       case "paper":
-        playRound(getHumanChoice("paper"), getComputerChoice());
+        playRound("paper", getComputerChoice());
         break;
 
       case "scissors":
-        playRound(getHumanChoice("scissors"), getComputerChoice());
+        playRound("scissors", getComputerChoice());
         break;
     }
   });
