@@ -8,13 +8,21 @@
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <h1>Rock Paper Scissors</h1>
-    <h3>Please select a choice</h3>
-    <div id="button-container" class="hide">
-      <button class="button" id="rock">Rock</button>
-      <button class="button" id="paper">Paper</button>
-      <button class="button" id="scissors">Scissors</button>
+    <div id="rps-container">
+      <h1>Rock Paper Scissors</h1>
+      <div id="sub-heading">
+        <h2>Please select a choice</h2>
+        <h3>The game ends once someone reaches 5 points</h3>
+        <h5 id="current-score">You Current Score: 0</h5>
+      </div>
+
+      <div id="button-container" class="hide">
+        <button class="button" id="rock">Rock</button>
+        <button class="button" id="paper">Paper</button>
+        <button class="button" id="scissors">Scissors</button>
+      </div>
     </div>
+
     <div id="results-container">
       <h1>Results</h1>
     </div>

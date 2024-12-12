@@ -1,4 +1,5 @@
 body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgb(236, 204, 210);
   height: 100vh;
   display: flex;
@@ -6,12 +7,29 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 10px;
+  box-sizing: border-box;
 }
 
 h1,
 h3,
 h2 {
-  color: white;
+  color: black;
+}
+
+#rps-container {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 3px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#sub-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #button-container {
@@ -34,10 +52,11 @@ h2 {
 
 #results-container {
   background-color: white;
-  box-shadow: 0 0 4px;
+  border-radius: 20px;
+  box-shadow: 0 0 3px;
   text-align: center;
   margin-top: 20px;
-  height: 500px;
+  height: 200px;
   width: 50%;
   display: none;
 }

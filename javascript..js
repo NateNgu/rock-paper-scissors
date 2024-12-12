@@ -25,7 +25,7 @@ let computerScore = 0;
 let humanScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-
+  const currentScore = document.getElementById("current-score")
   // Check if someone has reached 5 points
   if (humanScore == 5 || computerScore == 5) {
     displayFinalScores();
@@ -33,12 +33,15 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice == "paper" && computerChoice == "rock") {
       console.log("You won! Paper beats rock!");
       humanScore++;
+      currentScore.innerText = `Your Current Score: ${humanScore}`
     } else if (humanChoice == "rock" && computerChoice == "scissors") {
       console.log("You won! Rock beats scissors!");
       humanScore++;
+      currentScore.innerText = `Your Current Score: ${humanScore}`
     } else if (humanChoice == "scissors" && computerChoice == "paper") {
       console.log("You won! Scissors beats paper!");
       humanScore++;
+      currentScore.innerText = `Your Current Score: ${humanScore}`
     } else if (humanChoice == "rock" && computerChoice == "paper") {
       console.log("You lost! Paper beats rock!");
       computerScore++;
@@ -62,6 +65,15 @@ function displayFinalScores() {
   // Declare variable that holds all result elements
   const resultContainer = document.getElementById("results-container");
 
+  const winner = document.createElement("h3");
+  if (humanScore > computerScore) {
+    winner.style.color = "green"
+    winner.innerText = "You win!";
+  } else {
+    winner.style.color = "red"
+    winner.innerText = "You lost!";
+  }
+
   // Displays human score
   const humanResults = document.createElement("h4");
   humanResults.innerText = `Your score = ${humanScore}`;
@@ -71,6 +83,7 @@ function displayFinalScores() {
   computerResults.innerText = `Computer Score = ${computerScore}`;
 
   // Adds the score displays to the container
+  resultContainer.appendChild(winner);
   resultContainer.appendChild(humanResults);
   resultContainer.appendChild(computerResults);
 
