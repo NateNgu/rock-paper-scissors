@@ -84,18 +84,29 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function displayFinalScores() {
+  // Declare variable that holds all result elements
+  const resultContainer = document.getElementById("results-container");
+
+  // Display final scores after someone reaches 5 points
   if (humanScore === 5 || computerScore === 5) {
-    console.log("a");
+    // Displays human score
     const humanResults = document.createElement("h4");
     humanResults.innerText = `Your score = ${humanScore}`;
+
+    // Displays computer score
     const computerResults = document.createElement("h4");
-    computerResults.innerText = `Computer Score = ${computerScore}`; // will return typerror because you're trying to append a string
-    const results = document.getElementById("results");
+    computerResults.innerText = `Computer Score = ${computerScore}`;
 
-    results.appendChild(humanResults);
-    results.appendChild(computerResults);
+    // Adds the score displays to the container
+    resultContainer.appendChild(humanResults);
+    resultContainer.appendChild(computerResults);
 
+    // Reveal results by turning display none to block
     resultContainer.style.display = "block";
+
+    // Reset scores after game ends
+    humanScore = 0;
+    computerScore = 0;
   }
 }
 
@@ -103,7 +114,6 @@ const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
 const buttons = document.getElementsByClassName("button");
-const resultContainer = document.getElementById("results-container");
 
 for (i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
