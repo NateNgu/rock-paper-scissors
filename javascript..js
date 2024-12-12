@@ -25,71 +25,68 @@ let computerScore = 0;
 let humanScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-  
-  displayFinalScores();
-  // Make humanChoice case insensitive by parsing into lowercase
-  humanChoice = humanChoice.toLowerCase();
+
+  // Check if someone has reached 5 points
+  if (humanScore == 5 || computerScore == 5) {
+    displayFinalScores();
+  } else {
+    if (humanChoice == "paper" && computerChoice == "rock") {
+      console.log("You won! Paper beats rock!");
+      humanScore++;
+      roundsPlayed++;
+    } else if (humanChoice == "rock" && computerChoice == "scissors") {
+      console.log("You won! Rock beats scissors!");
+      humanScore++;
+      roundsPlayed++;
+    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+      console.log("You won! Scissors beats paper!");
+      humanScore++;
+      roundsPlayed++;
+    } else if (humanChoice == "rock" && computerChoice == "paper") {
+      console.log("You lost! Paper beats rock!");
+      computerScore++;
+      roundsPlayed++;
+    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+      console.log("You lost! Rock beats scissors!");
+      computerScore++;
+      roundsPlayed++;
+    } else if (humanChoice == "paper" && computerChoice == "scissors") {
+      console.log("You lost! Scissors beats paper!");
+      computerScore++;
+      roundsPlayed++;
+    } else if (humanChoice == computerChoice) {
+      console.log("It's a draw!");
+      roundsPlayed++;
+    } else {
+      console.log("Please input a proper choice."); // If user input is not rock, paper, scissors
+    }
+  }
   // Based on the humanChoice and computerChoice, decide if the player won or lost
   // Increments the winners score by one
-  if (humanChoice == "paper" && computerChoice == "rock") {
-    console.log("You won! Paper beats rock!");
-    humanScore++;
-    roundsPlayed++;
-  } else if (humanChoice == "rock" && computerChoice == "scissors") {
-    console.log("You won! Rock beats scissors!");
-    humanScore++;
-    roundsPlayed++;
-  } else if (humanChoice == "scissors" && computerChoice == "paper") {
-    console.log("You won! Scissors beats paper!");
-    humanScore++;
-    roundsPlayed++;
-  } else if (humanChoice == "rock" && computerChoice == "paper") {
-    console.log("You lost! Paper beats rock!");
-    computerScore++;
-    roundsPlayed++;
-  } else if (humanChoice == "scissors" && computerChoice == "rock") {
-    console.log("You lost! Rock beats scissors!");
-    computerScore++;
-    roundsPlayed++;
-  } else if (humanChoice == "paper" && computerChoice == "scissors") {
-    console.log("You lost! Scissors beats paper!");
-    computerScore++;
-    roundsPlayed++;
-  } else if (humanChoice == computerChoice) {
-    console.log("It's a draw!");
-    roundsPlayed++;
-  } else {
-    console.log("Please input a proper choice."); // If user input is not rock, paper, scissors
-  }
-  console.log("--------------------");
-  console.log(humanScore);
 }
 
 function displayFinalScores() {
   // Declare variable that holds all result elements
   const resultContainer = document.getElementById("results-container");
 
-  // Display final scores after someone reaches 5 points
-  if (humanScore === 5 || computerScore === 5) {
-    // Displays human score
-    const humanResults = document.createElement("h4");
-    humanResults.innerText = `Your score = ${humanScore}`;
+  // Displays human score
+  const humanResults = document.createElement("h4");
+  humanResults.innerText = `Your score = ${humanScore}`;
 
-    // Displays computer score
-    const computerResults = document.createElement("h4");
-    computerResults.innerText = `Computer Score = ${computerScore}`;
+  // Displays computer score
+  const computerResults = document.createElement("h4");
+  computerResults.innerText = `Computer Score = ${computerScore}`;
 
-    // Adds the score displays to the container
-    resultContainer.appendChild(humanResults);
-    resultContainer.appendChild(computerResults);
+  // Adds the score displays to the container
+  resultContainer.appendChild(humanResults);
+  resultContainer.appendChild(computerResults);
 
-    // Reveal results by turning display none to block
-    resultContainer.style.display = "block";
+  // Reveal results by turning display none to block
+  resultContainer.style.display = "block";
 
-    // Reset scores after game ends
-    humanScore = 0;
-    computerScore = 0;
-  }
+  // Reset scores after game ends
+  humanScore = 0;
+  computerScore = 0;
 }
 
 const rockButton = document.getElementById("rock");
