@@ -29,8 +29,24 @@ function getHumanChoice(choice) {
 // Declare initial scores
 let computerScore = 0;
 let humanScore = 0;
+let roundsPlayed = 0;
 
 function playRound(humanChoice, computerChoice) {
+  if (humanScore === 5 || computerScore === 5) {
+    console.log("a");
+    const humanResults = (document.createElement(
+      "h4"
+    ).innerText = `Your score = ${humanScore}`);
+    const computerResults = (document.createElement(
+      "h4"
+    ).innerText = `Computer Score = ${computerScore}`);
+    const results = document.getElementById("results");
+
+    results.appendChild(humanResults);
+    results.appendChild(computerResults);
+
+    resultContainer.style.display = "block";
+  }
   // Make humanChoice case insensitive by parsing into lowercase
   humanChoice = humanChoice.toLowerCase();
   // Based on the humanChoice and computerChoice, decide if the player won or lost
@@ -38,27 +54,35 @@ function playRound(humanChoice, computerChoice) {
   if (humanChoice == "paper" && computerChoice == "rock") {
     console.log("You won! Paper beats rock!");
     humanScore++;
+    roundsPlayed++;
   } else if (humanChoice == "rock" && computerChoice == "scissors") {
     console.log("You won! Rock beats scissors!");
     humanScore++;
+    roundsPlayed++;
   } else if (humanChoice == "scissors" && computerChoice == "paper") {
     console.log("You won! Scissors beats paper!");
     humanScore++;
+    roundsPlayed++;
   } else if (humanChoice == "rock" && computerChoice == "paper") {
     console.log("You lost! Paper beats rock!");
     computerScore++;
+    roundsPlayed++;
   } else if (humanChoice == "scissors" && computerChoice == "rock") {
     console.log("You lost! Rock beats scissors!");
     computerScore++;
+    roundsPlayed++;
   } else if (humanChoice == "paper" && computerChoice == "scissors") {
     console.log("You lost! Scissors beats paper!");
     computerScore++;
+    roundsPlayed++;
   } else if (humanChoice == computerChoice) {
     console.log("It's a draw!");
+    roundsPlayed++;
   } else {
     console.log("Please input a proper choice."); // If user input is not rock, paper, scissors
   }
   console.log("--------------------");
+  console.log(humanScore)
 }
 
 function displayFinalScores() {
@@ -80,7 +104,7 @@ const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
 const buttons = document.getElementsByClassName("button");
-console.log(buttons);
+const resultContainer = document.getElementById("results-container");
 
 for (i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
