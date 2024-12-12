@@ -29,22 +29,10 @@ function getHumanChoice(choice) {
 // Declare initial scores
 let computerScore = 0;
 let humanScore = 0;
-let roundsPlayed = 0;
 
 function playRound(humanChoice, computerChoice) {
-  if (humanScore === 5 || computerScore === 5) {
-    console.log("a");
-    const humanResults = document.createElement("h4");
-    humanResults.innerText = `Your score = ${humanScore}`;
-    const computerResults = document.createElement("h4");
-    computerResults.innerText = `Computer Score = ${computerScore}`; // will return typerror because you're trying to append a string
-    const results = document.getElementById("results");
-
-    results.appendChild(humanResults);
-    results.appendChild(computerResults);
-
-    resultContainer.style.display = "block";
-  }
+  
+  displayFinalScores();
   // Make humanChoice case insensitive by parsing into lowercase
   humanChoice = humanChoice.toLowerCase();
   // Based on the humanChoice and computerChoice, decide if the player won or lost
