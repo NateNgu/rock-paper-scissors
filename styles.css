@@ -15,6 +15,11 @@ h3,
 h2 {
   color: black;
 }
+#scores {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 35px;
+}
 
 #rps-container {
   background-color: white;
@@ -57,6 +62,6 @@ h2 {
   text-align: center;
   margin-top: 20px;
   height: 200px;
-  width: 50%;
+  width: 400px;
   display: none;
 }

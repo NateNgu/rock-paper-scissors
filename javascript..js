@@ -25,7 +25,8 @@ let computerScore = 0;
 let humanScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-  const currentScore = document.getElementById("current-score")
+  const currentScoreHuman = document.getElementById("current-score-human")
+  const currentScoreComputer = document.getElementById("current-score-computer")
   // Check if someone has reached 5 points
   if (humanScore == 5 || computerScore == 5) {
     displayFinalScores();
@@ -33,24 +34,27 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice == "paper" && computerChoice == "rock") {
       console.log("You won! Paper beats rock!");
       humanScore++;
-      currentScore.innerText = `Your Current Score: ${humanScore}`
+      currentScoreHuman.innerText = `Your Current Score: ${humanScore}`
     } else if (humanChoice == "rock" && computerChoice == "scissors") {
       console.log("You won! Rock beats scissors!");
       humanScore++;
-      currentScore.innerText = `Your Current Score: ${humanScore}`
+      currentScoreHuman.innerText = `Your Current Score: ${humanScore}`
     } else if (humanChoice == "scissors" && computerChoice == "paper") {
       console.log("You won! Scissors beats paper!");
       humanScore++;
-      currentScore.innerText = `Your Current Score: ${humanScore}`
+      currentScoreHuman.innerText = `Your Current Score: ${humanScore}`
     } else if (humanChoice == "rock" && computerChoice == "paper") {
       console.log("You lost! Paper beats rock!");
       computerScore++;
+      currentScoreComputer.innerText = `Computer's Current Score: ${computerScore}`
     } else if (humanChoice == "scissors" && computerChoice == "rock") {
       console.log("You lost! Rock beats scissors!");
       computerScore++;
+      currentScoreComputer.innerText = `Computer's Current Score: ${computerScore}`
     } else if (humanChoice == "paper" && computerChoice == "scissors") {
       console.log("You lost! Scissors beats paper!");
       computerScore++;
+      currentScoreComputer.innerText = `Computer's Current Score: ${computerScore}`
     } else if (humanChoice == computerChoice) {
       console.log("It's a draw!");
     } else {
